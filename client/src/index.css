@@ -128,5 +128,13 @@
     nav ul li a.active {
       @apply underline underline-offset-8 decoration-primary decoration-2;
     }
+
+    .hero_background {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.5)),
+        url("../src/assets/frontend_assets/header_img.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
   }
 }
