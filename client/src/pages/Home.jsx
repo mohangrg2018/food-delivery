@@ -1,4 +1,5 @@
 import ExploreMenu from "@/components/sections/ExploreMenu";
+import FoodDisplay from "@/components/sections/FoodDisplay";
 import Hero from "@/components/sections/Hero";
 import React, { useState } from "react";
 
@@ -8,6 +9,7 @@ const Home = () => {
     <main>
       <Hero />
       <ExploreMenu category={category} setCategory={setCategory} />
+      <FoodDisplay />
     </main>
   );
 };
