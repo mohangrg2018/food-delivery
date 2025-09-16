@@ -7,6 +7,9 @@ import MobileApp from "./pages/MobileApp";
 import Contact from "./pages/Contact";
 import Cart from "./pages/Cart";
 import Order from "./pages/Order";
+import Footer from "./components/shared/footer";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 const App = () => {
   return (
@@ -19,7 +22,10 @@ const App = () => {
         <Route path="/menu" element={<Menu />} />
         <Route path="/mobile-app" element={<MobileApp />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
+      <Footer />
     </>
   );
 };

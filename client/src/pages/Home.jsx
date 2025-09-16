@@ -1,3 +1,4 @@
+import AppDownload from "@/components/sections/AppDownload";
 import ExploreMenu from "@/components/sections/ExploreMenu";
 import FoodDisplay from "@/components/sections/FoodDisplay";
 import Hero from "@/components/sections/Hero";
@@ -9,7 +10,8 @@ const Home = () => {
     <main>
       <Hero />
       <ExploreMenu category={category} setCategory={setCategory} />
-      <FoodDisplay />
+      <FoodDisplay category={category} />
+      <AppDownload />
     </main>
   );
 };

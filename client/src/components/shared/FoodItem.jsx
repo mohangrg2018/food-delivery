@@ -3,16 +3,17 @@ import StoreContext from "@/context/StoreContext";
 import React, { useContext, useState } from "react";
 
 const FoodItem = ({ id, image, name, price, description }) => {
-  const { currency } = useContext(StoreContext);
-  const [itemCount, setItemCount] = useState(0);
+  const { currency, addToCart, removeFromCart, cartItems, setCartItems } =
+    useContext(StoreContext);
+
   return (
     <div className="rounded-md bg-white shadow-md">
       <div className="relative">
         <img src={image} className="rounded-t-md" alt={name} />
         <div className="absolute bottom-2 right-2">
-          {!itemCount ? (
+          {!cartItems[id] ? (
             <img
-              onClick={() => setItemCount((prev) => prev + 1)}
+              onClick={() => addToCart(id)}
               src={assets.add_icon_white}
               className="cursor-pointer"
               alt=""
@@ -20,14 +21,14 @@ const FoodItem = ({ id, image, name, price, description }) => {
           ) : (
             <div className="flex items-center gap-2 bg-white px-3 py-2 rounded-full">
               <img
-                onClick={() => setItemCount((prev) => prev - 1)}
+                onClick={() => removeFromCart(id)}
                 src={assets.remove_icon_red}
                 className="cursor-pointer"
                 alt=""
               />
-              <p>{itemCount}</p>
+              <p>{cartItems[id]}</p>
               <img
-                onClick={() => setItemCount((prev) => prev + 1)}
+                onClick={() => addToCart(id)}
                 src={assets.add_icon_green}
                 className="cursor-pointer"
                 alt=""
