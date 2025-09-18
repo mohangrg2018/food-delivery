@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 const StoreContextProvider = ({ children }) => {
   const currency = "$";
+  const delivery_fee = 20;
   const navigate = useNavigate();
   const [cartItems, setCartItems] = useState({});
 
@@ -24,9 +25,18 @@ const StoreContextProvider = ({ children }) => {
     }
   };
 
-  useEffect(() => {
-    console.log(cartItems);
-  }, [cartItems]);
+  const cartTotalAmount = () => {
+    let total = 0;
+    for (const item in cartItems) {
+      if (cartItems[item] > 0) {
+        const itemInfo = food_list.find((food) => food._id == item); // use == or convert explicitly
+        if (itemInfo) {
+          total += itemInfo.price * cartItems[item];
+        }
+      }
+    }
+    return total;
+  };
 
   const StoreValue = {
     navigate,
@@ -37,6 +47,8 @@ const StoreContextProvider = ({ children }) => {
     removeFromCart,
     cartItems,
     setCartItems,
+    cartTotalAmount,
+    delivery_fee,
   };
 
   return (

@@ -34,7 +34,9 @@ const Navbar = () => {
       </nav>
       <div className="flex items-center gap-4 sm:gap-6">
         <img src={assets.search_icon} className="w-6" alt="" />
-        <img src={assets.basket_icon} className="w-6" alt="" />
+        <Link to="/cart">
+          <img src={assets.basket_icon} className="w-6" alt="" />
+        </Link>
         <Button
           onClick={handleSignIn}
           variant="outline"
