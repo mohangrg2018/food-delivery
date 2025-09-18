@@ -80,7 +80,7 @@ const Cart = () => {
             <p>Total</p>
             <p>{cartTotalAmount() + delivery_fee}</p>
           </div>
-          <Link to="/checkout">
+          <Link to="/order">
             <Button className="rounded-none">Proceed to checkout</Button>
           </Link>
         </div>
